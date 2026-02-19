@@ -63,6 +63,12 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- It is used to Hash the passwords by using Bcrypt and store only the hash value in db and during login it verify using Bcrypt check -->
+		<dependency>
+  			<groupId>org.mindrot</groupId>
+  			<artifactId>jbcrypt</artifactId>
+  			<version>0.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
