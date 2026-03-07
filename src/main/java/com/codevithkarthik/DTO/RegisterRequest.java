@@ -1,9 +1,18 @@
 package com.codevithkarthik.DTO;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class RegisterRequest {
+	@NotBlank(message = "Username Required")
 	private String name;
+	@Pattern(regexp = "^[6-9]\\d{9}$", message = "Invalid mobile number")
 	private long mobile;
+	@Email(message = "Invalid Email")
 	private String email;
+	@Size(min = 8,message = "Password Must be 8 Characters")
 	private String password;
 	
 	public RegisterRequest() {
