@@ -2,8 +2,12 @@ package com.codevithkarthik.entity;
 
 import java.time.LocalDateTime;
 
+import com.codevithkarthik.enums.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,6 +34,9 @@ public class User {
     private String password;
 
     private LocalDateTime createdAt;//To Track Audit Logs
+    
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {
     	
@@ -98,4 +105,16 @@ public class User {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+
+
+	public Role getRole() {
+		return role;
+	}
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+    
+    
 }
