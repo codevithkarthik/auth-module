@@ -1,5 +1,12 @@
 # 🔐 Auth Module API
 
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-Backend-brightgreen)
+![JWT](https://img.shields.io/badge/Auth-JWT-blue)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![Docker](https://img.shields.io/badge/Container-Docker-blue)
+![Maven](https://img.shields.io/badge/Build-Maven-red)
+
 A secure authentication system built using **Spring Boot** and **JWT**.
 This API provides user registration, login, and protected endpoints using token-based authentication.
 
@@ -50,7 +57,7 @@ mvn spring-boot:run
 
 Swagger UI available at:
 
-http://localhost:8080/swagger-ui/index.html
+https://authentication-module-o7mh.onrender.com/swagger-ui/index.html
 
 ## 🔑 Authentication Flow
 
@@ -75,7 +82,10 @@ src
 
 ## 🌍 Deployment
 
-Deployment instructions will be added after cloud deployment.
+Application deployed using:
+
+- Docker
+- Render Cloud Platform
 
 ## 👨‍💻 Author
 
