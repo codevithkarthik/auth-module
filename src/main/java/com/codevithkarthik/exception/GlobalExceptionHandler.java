@@ -47,6 +47,8 @@ public class GlobalExceptionHandler {
 	    return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 	}
 	
+	
+	
 	@ExceptionHandler(UserAlreadyExistsException.class)
 	public ResponseEntity<ResponseStructure<String>> handleUserExists(UserAlreadyExistsException ex){
 
@@ -59,18 +61,16 @@ public class GlobalExceptionHandler {
 	    return new ResponseEntity<>(rs, HttpStatus.CONFLICT);
 	}
 	
-	//fallback exception handler.This prevents our API from returning ugly stack traces.
-	/*
-	 * 
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<ResponseStructure<String>> handleGeneralException(Exception ex){
+	@ExceptionHandler(MobileAlreadyExistsException.class)
+    public ResponseEntity<ResponseStructure<String>> handleMobileExists(MobileAlreadyExistsException ex) {
+		
+		 ResponseStructure<String> rs = new ResponseStructure<>();
 
-	    ResponseStructure<String> rs = new ResponseStructure<>();
-
-	    rs.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-	    rs.setMessage("Something went wrong");
-	    rs.setData(null);
-
-	    return new ResponseEntity<>(rs,HttpStatus.INTERNAL_SERVER_ERROR);
-	}*/
+		    rs.setStatusCode(HttpStatus.CONFLICT.value());
+		    rs.setMessage(ex.getMessage());
+		    rs.setData(null);
+		 
+        return new ResponseEntity<>(rs, HttpStatus.CONFLICT);
+    }
+	
 }
