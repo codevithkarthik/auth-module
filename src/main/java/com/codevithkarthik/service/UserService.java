@@ -17,6 +17,7 @@ import com.codevithkarthik.DTO.UserPrincipal;
 import com.codevithkarthik.DTO.UserResponse;
 import com.codevithkarthik.entity.User;
 import com.codevithkarthik.enums.Role;
+import com.codevithkarthik.exception.MobileAlreadyExistsException;
 import com.codevithkarthik.exception.UserAlreadyExistsException;
 import com.codevithkarthik.repositary.UserRepositary;
 
@@ -42,8 +43,12 @@ public class UserService {
 		    throw new UserAlreadyExistsException("User already exists");
 		}
 		
+		if(userRepo.existsByMobile(request.getMobile())) {
+	        throw new MobileAlreadyExistsException("Mobile number already registered");
+	    }
+		
 		String name=request.getName();
-		Long mobile=request.getMobile();
+		String mobile=request.getMobile();
 		String email=request.getEmail();
 		String password=request.getPassword();
 		String hashPassword=passwordEncoder.encode(password);//By Using External Library of jBcrypt (BCrypt.hashpw(password, BCrypt.gensalt()))

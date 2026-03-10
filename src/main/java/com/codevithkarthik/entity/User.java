@@ -25,7 +25,7 @@ public class User {
     private String name;
 
     @Column(nullable = false, unique = true)
-    private Long mobile;
+    private String mobile;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -54,10 +54,10 @@ public class User {
     	this.name = name; 
     }
 
-    public Long getMobile() { 
+    public String getMobile() { 
     	return mobile; 
     }
-    public void setMobile(Long mobile) { 
+    public void setMobile(String mobile) { 
     	this.mobile = mobile; 
     }
 
@@ -75,7 +75,7 @@ public class User {
     	this.password = password; 
     }
 
-    public User(String name, Long mobile, String email, String password) {
+    public User(String name, String mobile, String email, String password) {
 		super();
 		this.name = name;
 		this.mobile = mobile;
@@ -84,7 +84,7 @@ public class User {
 	}
     
 
-	public User(Long id, String name, Long mobile, String email, String password, LocalDateTime createdAt) {
+	public User(Long id, String name, String mobile, String email, String password, LocalDateTime createdAt) {
 		super();
 		this.id = id;
 		this.name = name;

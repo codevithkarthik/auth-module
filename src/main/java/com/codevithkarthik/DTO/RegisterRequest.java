@@ -9,7 +9,7 @@ public class RegisterRequest {
 	@NotBlank(message = "Username Required")
 	private String name;
 	@Pattern(regexp = "^[6-9]\\d{9}$", message = "Invalid mobile number")
-	private long mobile;
+	private String mobile;
 	@Email(message = "Invalid Email")
 	private String email;
 	@Size(min = 8,message = "Password Must be 8 Characters")
@@ -27,10 +27,10 @@ public class RegisterRequest {
 		this.name = name;
 	}
 	
-	public long getMobile() {
+	public @Pattern(regexp = "^[6-9]\\d{9}$", message = "Invalid mobile number") String getMobile() {
 		return mobile;
 	}
-	public void setMobile(long mobile) {
+	public void setMobile(@Pattern(regexp = "^[6-9]\\d{9}$", message = "Invalid mobile number") String mobile) {
 		this.mobile = mobile;
 	}
 	
